@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- Habilita as annotations do Spring MVC -->
+	<mvc:annotation-driven />
+	
+	<!-- Configura o Spring MVC para acessar conteúdo estático -->
+	<mvc:default-servlet-handler />
+	
+	<!-- Definição da view a ser carregada no contexto raiz da aplicação -->
+	<mvc:view-controller path="/" view-name="index"/>
+	
+	<!-- Define a localização das views da aplicação -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>
